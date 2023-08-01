@@ -24,14 +24,14 @@
 <definition xmlns="http://definition.nexusformat.org/nxdl/3.1" category="base"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://definition.nexusformat.org/nxdl/3.1 ../nxdl.xsd"
-    name="NXxraylens"
+    name="NXoptical_lens"
     type="group" extends="NXobject">
 
     <doc>
-      An X-ray lens, typically at a synchrotron X-ray beam line.
+      An optical lens, typically for a camera detector.
       
-      Based on information provided by Gerd Wellenreuther (DESY).
-      </doc>
+      Designed to help spatially map camera pixels to szintillator screens.
+    </doc>
     <field name="lens_geometry" type="NX_CHAR">
         <doc>Geometry of the lens</doc>
         <enumeration>
@@ -41,21 +41,6 @@
           <item value="hyperbolical"/>
         </enumeration>
     </field>
-    <field name="symmetric" type="NX_BOOLEAN">
-      <doc>
-        Is the device symmetric? 
-      </doc>
-    </field>
-    <field name="cylindrical" type="NX_BOOLEAN">
-      <doc>
-        Is the device cylindrical? 
-      </doc>
-    </field>
-    <group name="cylinder_orientation" type="NXnote">
-      <doc>
-        Orientation of the cylinder axis.
-      </doc>
-    </group>
     <field name="focus_type" type="NX_CHAR">
       <doc>
         The type of focus of the lens
@@ -65,48 +50,53 @@
            <item value="point"/>
         </enumeration>
     </field>
+    <field name="name" type="NX_CHAR">
+        <doc>
+             Given name, alias, colloquial, or short name for the lens.
+             For manufacturer names and identifiers use respective fields.
+        </doc>
+    </field>
+    <field name="manufacturer_name" type="NX_CHAR">
+        <doc>
+             Name of the manufacturer who built/constructed the lens.
+        </doc>
+    </field>
+    <field name="model" type="NX_CHAR">
+        <doc>
+             Model name was given by the manufacturer to identify the lens.
+        </doc>
+    </field>
+    <field name="mount_type" type="NX_CHAR">
+        <doc>
+             Description how the lens is mounted to the camera/detector.
+        </doc>
+    </field>
+    <field name="serial_number" type="NX_CHAR">
+        <doc>
+             Hardware name, hash identifier, or serial number that was given by the
+             manufacturer to identify the lens.
+        </doc>
+    </field>
     <field name="lens_thickness" type="NX_FLOAT" units="NX_LENGTH">
       <doc>Thickness of the lens</doc>
     </field>
     <field name="lens_length" type="NX_FLOAT" units="NX_LENGTH">
       <doc>Length of the lens</doc>
     </field>
-    <field name="curvature" type="NX_FLOAT" units="NX_LENGTH">
-      <doc>Radius of the curvature as measured in the middle of the lens</doc>
+    <field name="focal_length" type="NX_FLOAT" units="NX_LENGTH">
+      <doc>Focal length of the lens.</doc>
+    </field>
+        <field name="magnification" type="NX_FLOAT">
+      <doc>Effective magification of the lens.</doc>
     </field>
     <field name="aperture" type="NX_FLOAT" units="NX_LENGTH">
-      <doc>Diameter of the lens.</doc>
-    </field>
-    <field name="number_of_lenses" type="NX_INT">
-      <doc>Number of lenses that make up the compound lens.</doc>
-    </field>
-    <field name="lens_material" type="NX_CHAR">
-      <doc>Material used to make the lens.</doc>
-    </field>
-    <field name="gas" type="NX_CHAR">
-      <doc>Gas used to fill the lens</doc>
-    </field>
-    <field name="gas_pressure" type="NX_FLOAT" units="NX_PRESSURE">
-      <doc>Gas pressure in the lens</doc>
+      <doc>Diameter of the lens. Q: Does that make more sense in "stops"?</doc>
     </field>
     <group type="NXoff_geometry" minOccurs="0">
        <doc>
            This group describes the shape of the beam line component
         </doc>
     </group>
-    <attribute name="default">
-        <doc>
-            .. index:: plotting
-            
-            Declares which child group contains a path leading 
-            to a :ref:`NXdata` group.
-            
-            It is recommended (as of NIAC2014) to use this attribute
-            to help define the path to the default dataset to be plotted.
-            See https://www.nexusformat.org/2014_How_to_find_default_data.html
-            for a summary of the discussion.
-        </doc>
-    </attribute>
     <field name="depends_on" type="NX_CHAR">
         <doc>
             NeXus positions components by applying a set of translations and rotations
@@ -116,8 +106,12 @@
             string "." if located in the origin. Usually these operations are stored in a
             NXtransformations group. But NeXus allows them to be stored anywhere.
 
-            .. todo::
-              Add a definition for the reference point of a x-ray lens.
+            If missing, the assumption is that the lens is mounted to the enclosing NXdetector 
+            (camera) using a camera mount.
+
+            This definition assumes a radial symmetry of the lens. The reference location for the lens 
+            has the mounting plane to the camera in the x/y plane, with the origin at the centre and z pointing 
+            away from the lens body.
 
         </doc>
     </field>

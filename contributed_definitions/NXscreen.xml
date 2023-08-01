@@ -2,32 +2,37 @@
 <?xml-stylesheet type="text/xsl" href="nxdlformat.xsl"?>
 <definition category="base" extends="NXobject" name="NXscreen" type="group" xmlns="http://definition.nexusformat.org/nxdl/3.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://definition.nexusformat.org/nxdl/3.1 ../nxdl.xsd">
     <doc>
-         Description of (szintillator) screen.
+        Description of (szintillator) screen.
     </doc>
     <field name="szintillator_material" type="NX_CHAR">
         <doc>
             Material that converts/scatters the incoming particles.
         </doc>
     </field>
+    <field name="szintillator_thickness" type="NX_NUMBER" units="NX_LENGTH">
+        <doc>
+            Thickness of material that converts/scatters the incoming particles.
+        </doc>
+    </field>
     <group name="shape" type="NXoff_geometry"/>
     <field name="description" type="NX_CHAR">
         <doc>
-             Human readable details about the screen.
+            Human readable details about the screen.
         </doc>
     </field>
     <field name="depends_on" type="NX_CHAR">
         <doc>
-             Specifies the position of the screen by pointing to the last transformation in the
-             transformation chain in the NXtransformations group.
+            Specifies the position of the screen by pointing to the last transformation in the
+            transformation chain in the NXtransformations group.
 
             The default orientation is in the xy plane. 
-             The reference location of the screen is XXXX or the origin of the NXoff_geometry shape, if provided.
+            The reference location of the screen is XXXX or the origin of the NXoff_geometry shape, if provided.
         </doc>
     </field>
     <group type="NXtransformations">
         <doc>
-             Collection of axis-based translations and rotations to describe the
-             location of the screen as a component in the instrument.
+            Collection of axis-based translations and rotations to describe the
+            location of the screen as a component in the instrument.
         </doc>
     </group>
 </definition>
