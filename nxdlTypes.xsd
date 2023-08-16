@@ -267,12 +267,52 @@
 		<xs:restriction base="xs:string" />
 	</xs:simpleType>
 	
+	<xs:simpleType name="NX_PER_TIME">
+		<xs:annotation>
+			<xs:documentation>
+				units of 1/time
+				<xs:element name="example">Hz</xs:element>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="NX_SPEED">
+		<xs:annotation>
+			<xs:documentation>
+				units of length/time
+				<xs:element name="example">m/s</xs:element>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
+	<xs:simpleType name="NX_ROTATIONSPEED">
+		<xs:annotation>
+			<xs:documentation>
+				units of angle/time
+				<xs:element name="example">deg/s</xs:element>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+
 	<xs:simpleType name="NX_PERIOD">
 		<xs:annotation>
 			<xs:documentation>
 				units of time, period of pulsed source
 				(alias to `NX_TIME`)
 				<xs:element name="example">us</xs:element>
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string" />
+	</xs:simpleType>
+	
+	<xs:simpleType name="NX_TORQUE">
+		<xs:annotation>
+			<xs:documentation>
+				units of torque
+				<xs:element name="example">Nm</xs:element>
 			</xs:documentation>
 		</xs:annotation>
 		<xs:restriction base="xs:string" />

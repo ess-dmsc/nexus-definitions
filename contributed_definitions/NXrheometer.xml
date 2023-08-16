@@ -7,79 +7,95 @@
 
     <field name="name" type="NX_CHAR">
         <doc>
-             Given name, alias, colloquial, or short name for the lens.
+             Given name, alias, colloquial, or short name for the rheometer.
              For manufacturer names and identifiers use respective manufacturer fields.
         </doc>
     </field>
     <field name="manufacturer_name" type="NX_CHAR">
         <doc>
-             Name of the manufacturer who built/constructed the lens.
+             Name of the rheometer manufacturer 
         </doc>
     </field>
     <field name="model" type="NX_CHAR">
         <doc>
              Hardware name, hash identifier, or serial number that was given by the
-             manufacturer to identify the lens.
+             manufacturer to identify the device.
         </doc>
     </field>
     <field name="description" type="NX_CHAR">
         <doc>
              Ideally an identifier, persistent link, or free text which gives further details
-             about the lens.
+             about the device.
         </doc>
     </field>
-    <field name="speed" type="NX_NUMBER" units="NX_VOLTAGE">
+    <field name="speed" type="NX_NUMBER" units="NX_ROTATIONSPEED">
         <doc>
-             Excitation voltage of the lens. For dipoles it is a single number. For higher
-             orders, it is an array.
+             Rotation speed of the rheometer
         </doc>
     </field>
-    <field name="frequency" type="NX_NUMBER" units="NX_CURRENT">
+    <field name="frequency" type="NX_NUMBER" units="NX_FREQUENCY">
         <doc>
-             Excitation current of the lens. For dipoles it is a single number. For higher
-             orders, it is an array.
+             Induced oscillation frequency of the measurement geometry
         </doc>
     </field>    
-    <field name="amplitude" type="NX_NUMBER" units="NX_CURRENT">
+    <field name="osciallation_strain" type="NX_NUMBER" units="NX_UNITLESS">
         <doc>
-             Excitation current of the lens. For dipoles it is a single number. For higher
-             orders, it is an array.
+             For osciallation measurements. Strain setting for the induced oscillation of the measurement geometry
+        </doc>
+    </field>    
+    <field name="osciallation_stress" type="NX_NUMBER" units="NX_PRESSURE">
+        <doc>
+             For osciallation measurements. Stress setting for the induced osciallation of the measurement geometry
         </doc>
     </field>
-    <field name="torque" type="NX_NUMBER" units="NX_CURRENT">
+    <field name="shear_strain" type="NX_NUMBER" units="NX_UNITLESS">
         <doc>
-             Excitation current of the lens. For dipoles it is a single number. For higher
-             orders, it is an array.
+             Resulting shear strain 
+        </doc>
+    </field>    
+    <field name="shear_stress" type="NX_NUMBER" units="NX_PRESSURE">
+        <doc>
+             Resulting shear stress
         </doc>
     </field>
-    <field name="phase_angle" type="NX_NUMBER" units="NX_CURRENT">
+    <field name="shear_rate" type="NX_NUMBER" units="NX_PER_TIME">
         <doc>
-             Excitation current of the lens. For dipoles it is a single number. For higher
-             orders, it is an array.
+             Resulting shear rate
         </doc>
     </field>
-    <field name="viscosity" type="NX_NUMBER" units="NX_CURRENT">
+    <field name="torque" type="NX_NUMBER" units="NX_TORQUE">
         <doc>
-             Excitation current of the lens. For dipoles it is a single number. For higher
-             orders, it is an array.
+             Measured torque of the rheometer
         </doc>
     </field>
-    <field name="viscosity_modulus" type="NX_NUMBER" units="NX_CURRENT">
+    <field name="phase_angle" type="NX_NUMBER" units="NX_ANGLE">
         <doc>
-             Excitation current of the lens. For dipoles it is a single number. For higher
-             orders, it is an array.
+             Phase shift angle for an induced osciallation measurment
         </doc>
     </field>
-    <field name="elastic_modulus" type="NX_NUMBER" units="NX_CURRENT">
+    <field name="viscosity" type="NX_NUMBER">
         <doc>
-             Excitation current of the lens. For dipoles it is a single number. For higher
-             orders, it is an array.
+             Measured or calcualted viscosity parameter of the sample in units of pressure * time.
         </doc>
     </field>
-    <field name="temperature" type="NX_NUMBER" units="NX_CURRENT">
+    <field name="loss_modulus" type="NX_NUMBER" units="NX_PRESSURE">
         <doc>
-             Excitation current of the lens. For dipoles it is a single number. For higher
-             orders, it is an array.
+             Anders finds good words
+        </doc>
+    </field>
+    <field name="storage_modulus" type="NX_NUMBER" units="NX_PRESSURE">
+        <doc>
+             Anders finds good words
+        </doc>
+    </field>
+    <field name="complex_shear_modulus" type="NX_NUMBER" units="NX_PRESSURE">
+        <doc>
+             Anders finds good words
+        </doc>
+    </field>
+    <field name="temperature" type="NX_NUMBER" units="NX_TEMPERATURE">
+        <doc>
+             Temperature of the sample
         </doc>
     </field>
     
