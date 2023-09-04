@@ -311,7 +311,7 @@
 	<xs:simpleType name="NX_TORQUE">
 		<xs:annotation>
 			<xs:documentation>
-				units of torque
+				units of torque: force times length
 				<xs:element name="example">Nm</xs:element>
 			</xs:documentation>
 		</xs:annotation>
