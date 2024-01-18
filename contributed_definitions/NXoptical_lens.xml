@@ -84,13 +84,13 @@
       <doc>Length of the lens</doc>
     </field>
     <field name="focal_length" type="NX_FLOAT" units="NX_LENGTH">
-      <doc>Focal length of the lens.</doc>
+      <doc>Focal length of the lens (full frame equivalent).</doc>
     </field>
         <field name="magnification" type="NX_FLOAT">
       <doc>Effective magification of the lens.</doc>
     </field>
-    <field name="aperture" type="NX_FLOAT" units="NX_LENGTH">
-      <doc>Diameter of the lens. Q: Does that make more sense in "stops"?</doc>
+    <field name="aperture" type="NX_FLOAT">
+      <doc>F "stops" selected (1.4, 2, ...)</doc>
     </field>
     <group type="NXoff_geometry" minOccurs="0">
        <doc>
